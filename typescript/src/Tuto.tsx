@@ -69,6 +69,40 @@ let product3={title:'shirt'};
 let productList:{title:string,price?:number}[]=[product1,product2,product3]
 productList.push({title:'book',price:200})
 productList.map(e=>e.price!-10)
+//Functions
+const names:string[]=['usernameOne','userNameTwo','userTree','userFor']
+function deleteUserByName(userName:string):string[]{
+ return  names.filter(e=> e!=userName)
+}
+deleteUserByName('userTree')
+function calclulatePrice(price:number,discount?:number ):number {
+     return price-(discount||0);
+
+}
+let priceAfterDicount=calclulatePrice(100,20)
+//function with default parameters
+let scoreAfterPenalty=(intialScroe:number,penaltyPoints:number=0)=>{
+return intialScroe-penaltyPoints;
+}
+scoreAfterPenalty(100,20);
+function sum(message:string , ...numbers:number[]):string{
+const doubled:number[]=numbers.map(e=>Math.pow(e,2))
+    return message+doubled;
+}
+/*Function Using Types as Function Parameters */
+function processInput (p: string|number){
+    if(typeof p=="number") console.log(p*2)
+    else console.log(p.toUpperCase())
+}
+function createEmployee({id}:{id:number}):{id:number,isCative:boolean}{
+return {id,isCative:id%2===0}
+}
+const first=createEmployee({id:5});
+
+
+
+
+
 
 
 
