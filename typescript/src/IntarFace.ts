@@ -71,7 +71,7 @@ const employee:Employee={
     age:1.2,
     name:'EmployeeName',
     getDetails(){
-        return ``;
+        return `Empty string `;
     }
 }
 
