@@ -1,4 +1,4 @@
- let someValue:any='this is a string';
+let someValue:any='this is a string';
  let strLength:number=(someValue as string).length
  type Bird={
      name:string
@@ -8,6 +8,7 @@
  let birdObject =JSON.parse(birdString) as Bird
  let dogObject=JSON.parse(dogString)
  let dog:Bird =dogObject as Bird
+ console.log(dog,birdObject);
  enum Status{
   Pending="pending",
   Declined="declined"
@@ -52,7 +53,38 @@ try{
   *  a variable of type never TypeScript will give a compile error if there are any unhandled cases, helping ensure that
   *  all cases are handled
   */
+ let value:never;
+ //we can not assign any value to type never
+ type Theme='light'|'dark';
+ function checkTheme(theme:Theme):void {
+     if(theme==="light"){
+         console.log("light theme")
+     }if(theme==="dark"){
+         console.log("dark theme ")
+     }
+     console.log(typeof theme)
+ }
+enum Color{
+     Red="Red",
+    Blue="Blue",
+    dark="dark"
+ }
+ function getColorName(color:Color){
+     switch (color){
+         case Color.Red:
+             return ()=>console.log("Hello");
+         case Color.Blue:
+             return "Blue";
+         case Color.dark:
+             return "dark";
+         default:
+             /** at build Time */
 
+             /**at RunTime */
+         throw new Error(`Unexpected Color Value : ${color}`)
+     }
+ }
+console.log(getColorName(Color.dark))
 
 
 
